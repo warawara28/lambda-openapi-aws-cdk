@@ -1,0 +1,30 @@
+{
+  "name": "lambda-openapi-aws-cdk",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "bin": {
+    "lambda-openapi-aws-cdk": "bin/lambda-openapi-aws-cdk.js"
+  },
+  "scripts": {
+    "build": "tsc; for d in $(ls lib/lambda/src/ | grep -v go); do cd lib/lambda/src/$d/ && GOOS=linux go build -trimpath -o ./main -ldflags '-w -s' && cd -; done",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.10",
+    "@types/node": "10.17.27",
+    "aws-cdk": "2.20.0",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@apidevtools/swagger-parser": "^10.0.3",
+    "aws-cdk-lib": "2.20.0",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.16"
+  }
+}
